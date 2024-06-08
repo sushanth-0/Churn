@@ -1,20 +1,24 @@
-import logging
 import os
+import sys
 
-from from_root import from_root
-from datetime import datetime
+def error_message_detail(error, error_detail:sys):
+    _, _, exc_tb = error_detail.exc_info()
+    file_name = exc_tb.tb_frame.f_code.co_filename
+    error_message = "Error occurred python script name [{0}] line number [{1}] error message [{2}]".format(
+        file_name, exc_tb.tb_lineno, str(error)
+    )
 
-LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+    return error_message
 
-log_dir = 'logs'
+class CustomerChurnException(Exception):
+    def __init__(self, error_message, error_detail):
+        """
+        :param error_message: error message in string format
+        """
+        super().__init__(error_message)
+        self.error_message = error_message_detail(
+            error_message, error_detail=error_detail
+        )
 
-logs_path = os.path.join(from_root(), log_dir, LOG_FILE)
-
-os.makedirs(log_dir, exist_ok=True)
-
-
-logging.basicConfig(
-    filename=logs_path,
-    format="[ %(asctime)s ] %(name)s - %(levelname)s - %(message)s",
-    level=logging.DEBUG,
-)
+    def __str__(self):
+        return self.error_message

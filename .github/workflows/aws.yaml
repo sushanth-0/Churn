@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -38,6 +43,11 @@ jobs:
     needs: Continuous-Integration
     runs-on: self-hosted
     steps:
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
       - name: Checkout
         uses: actions/checkout@v3
 

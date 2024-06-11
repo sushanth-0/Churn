@@ -20,7 +20,7 @@ jobs:
       
       # Reference the major version of a release
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -29,7 +29,7 @@ jobs:
       # Reference a specific version
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2.1.0
+        uses: aws-actions/amazon-ecr-login@v4.2.0
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
@@ -57,7 +57,7 @@ jobs:
       
       # Reference the major version of a release
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -66,7 +66,7 @@ jobs:
       # Reference a specific version
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2.1.0
+        uses: aws-actions/amazon-ecr-login@v4.2.0
 
       - name: Run Docker Image to serve users
         run: |

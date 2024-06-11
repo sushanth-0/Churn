@@ -9,14 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Reference a specific commit
+      - name: Checkout
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+
       - name: Set up Node.js 20
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
       
-      - name: Checkout
-        uses: actions/checkout@v3
-
+      # Reference the major version of a release
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -24,9 +26,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
+      # Reference a specific version
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v2.1.0
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
@@ -43,14 +46,16 @@ jobs:
     needs: Continuous-Integration
     runs-on: self-hosted
     steps:
+      # Reference a branch
+      - name: Checkout
+        uses: actions/checkout@main
+
       - name: Set up Node.js 20
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
       
-      - name: Checkout
-        uses: actions/checkout@v3
-
+      # Reference the major version of a release
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -58,9 +63,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
+      # Reference a specific version
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v2.1.0
 
       - name: Run Docker Image to serve users
         run: |

@@ -29,7 +29,7 @@ jobs:
       # Reference a specific version
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v4.2.0
+        uses: aws-actions/amazon-ecr-login@v2.0.1
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
@@ -66,7 +66,7 @@ jobs:
       # Reference a specific version
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v4.2.0
+        uses: aws-actions/amazon-ecr-login@v2.0.1
 
       - name: Run Docker Image to serve users
         run: |

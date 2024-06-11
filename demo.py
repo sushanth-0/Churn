@@ -1,10 +1,4 @@
-from Customer_Churn.logger import logging
-from Customer_Churn.exception import CustomerChurnException
-import sys
+from Customer_Churn.pipeline.training_pipeline import TrainPipeline
 
-
-try:
-    a = 1/"10"
-except Exception as e:
-    logging.info(e)
-    raise CustomerChurnException(e, sys) from e
+pipeline = TrainPipeline()
+pipeline.run_pipeline()

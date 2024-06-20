@@ -131,14 +131,6 @@ python app.py
 4. **Web Application**:
    - Build a basic web app using HTML and CSS to expose the model's prediction functionality.
 
-## Workflow
-
-1. constant
-2. config_entity
-3. artifact_entity
-4. component
-5. pipeline
-6. app.py / demo.py
 
 ### Export the Environment Variables
 

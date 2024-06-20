@@ -29,6 +29,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 class DataForm:
     def __init__(self, request: Request):
         self.request: Request = request
@@ -74,9 +75,11 @@ class DataForm:
         self.MonthlyCharges = float(form.get("MonthlyCharges"))
         self.TotalCharges = float(form.get("TotalCharges"))
 
+
 @app.get("/", tags=["authentication"])
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "context": "Rendering"})
+
 
 @app.get("/train")
 async def trainRouteClient():
@@ -86,6 +89,7 @@ async def trainRouteClient():
         return Response("Training successful !!")
     except Exception as e:
         return Response(f"Error Occurred! {e}")
+
 
 @app.post("/")
 async def predictRouteClient(request: Request):

@@ -78,7 +78,8 @@ class CustomerChurnData:
         """
         This function returns a dictionary from CustomerChurnData class input 
         """
-        logging.info("Entered get_customer_churn_data_as_dict method of CustomerChurnData class")
+        logging.info(
+            "Entered get_customer_churn_data_as_dict method of CustomerChurnData class")
 
         try:
             input_data = {
@@ -104,12 +105,14 @@ class CustomerChurnData:
             }
 
             logging.info("Created customer churn data dict")
-            logging.info("Exited get_customer_churn_data_as_dict method of CustomerChurnData class")
+            logging.info(
+                "Exited get_customer_churn_data_as_dict method of CustomerChurnData class")
 
             return input_data
 
         except Exception as e:
             raise CustomerChurnException(e, sys) from e
+
 
 class CustomerChurnClassifier:
     def __init__(self, prediction_pipeline_config: CustomerChurnPredictConfig = CustomerChurnPredictConfig(),) -> None:
@@ -123,18 +126,19 @@ class CustomerChurnClassifier:
 
     def predict(self, dataframe) -> str:
         """
-        This is the method of USvisaClassifier
+        This is the method of CustomerChurnClassifier
         Returns: Prediction in string format
         """
         try:
-            logging.info("Entered predict method of USvisaClassifier class")
+            logging.info(
+                "Entered predict method of CustomerChurnClassifier class")
             model = CustomerChurnEstimator(
                 bucket_name=self.prediction_pipeline_config.model_bucket_name,
                 model_path=self.prediction_pipeline_config.model_file_path,
             )
-            result =  model.predict(dataframe)
-            
+            result = model.predict(dataframe)
+
             return result
-        
+
         except Exception as e:
             raise CustomerChurnException(e, sys)

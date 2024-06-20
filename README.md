@@ -1,22 +1,9 @@
 <br />
 <div align="center">
-  <a href="https://github.com/your_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">Customer Churn Prediction</h3>
 
   <p align="center">
     An end-to-end machine learning pipeline to predict customer churn, including training, prediction, and deployment to AWS EC2 with Docker and GitHub Actions.
-    <br />
-    <a href="https://github.com/your_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/your_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/your_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/your_username/repo_name/issues">Request Feature</a>
   </p>
 </div>
 
@@ -30,7 +17,7 @@
       </ul>
     </li>
     <li>
-      <a href="#How to run">How to Run</a>
+      <a href="#how-to-run">How to Run</a>
     </li>
     <li>
       <a href="#training-pipeline">Training Pipeline</a>
@@ -42,23 +29,17 @@
       <a href="#deployment">Deployment</a>
     </li>
     <li>
-      <a href="#how-to-run">How to Run</a>
-    </li>
-    <li>
       <a href="#workflow">Workflow</a>
     </li>
     <li>
       <a href="#aws-cicd-deployment-with-github-actions">AWS CI/CD Deployment with GitHub Actions</a>
     </li>
-    <li>
   </ol>
 </details>
 
 ## About The Project
 
 This project is designed to accurately predict customer churn. The pipeline involves data ingestion, validation, transformation, model training, evaluation, and deployment.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Tech Stack
 
@@ -71,8 +52,6 @@ This project is designed to accurately predict customer churn. The pipeline invo
   - AWS ECR: Docker image repository
 - **CI/CD**: GitHub Actions
 - **Web Application**: HTML, CSS
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## How to Run
 
@@ -88,8 +67,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Usage
 
 Instructions on how to use the project.
@@ -97,10 +74,7 @@ Instructions on how to use the project.
 ```bash
 # Run the application
 python app.py
-
 ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Training Pipeline
 
@@ -134,15 +108,11 @@ python app.py
 7. **Training Pipeline Execution**:
    - Execute the entire training pipeline to process data, train, evaluate, and deploy the model.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Prediction Pipeline
 
 - Ingest new or unseen data from users or MongoDB.
 - Transform the new data using the preprocessing steps from the training pipeline.
 - Make predictions using the best-trained model stored in AWS S3.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Deployment
 
@@ -161,19 +131,6 @@ python app.py
 4. **Web Application**:
    - Build a basic web app using HTML and CSS to expose the model's prediction functionality.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## How to Run
-
-```bash
-conda create -n YourProjectName python=3.8 -y
-conda activate YourProjectName
-pip install -r requirements.txt
-python app.py
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Workflow
 
 1. constant
@@ -190,8 +147,6 @@ export MONGODB_URL="mongodb+srv://<username>:<password>...."
 export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
 export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## AWS CI/CD Deployment with GitHub Actions
 
@@ -245,7 +200,3 @@ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
    - `AWS_SECRET_ACCESS_KEY`
    - `AWS_DEFAULT_REGION`
    - `ECR_REPO`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
